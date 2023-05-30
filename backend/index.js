@@ -32,12 +32,7 @@ mongoose
 app.get("/all", async (req, res) => {
     let ipAddress = ''
     try{
-        ipAddress = await fetchIpAddress()
-    } catch (err) {
-        res.status(500).json({ msg: 'Server Error' });
-    }
-  
-    try {
+      ipAddress = await fetchIpAddress()
       const data = await Url.find({ ipAddress });
       console.log(data);
       res.json(data);
